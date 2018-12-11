@@ -1,12 +1,9 @@
-langauge: android
-
+language: android
 android:
   components:
     - build-tools-26.0.2
-
-    # SDK version
+    # SDK
     - android-26
-
     # Emulators
     - sys-img-x86-android-26
     - sys-img-armeabi-v7a-android-17
