@@ -3,8 +3,8 @@ package io.o2mc.appkotlin
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.View
 import android.widget.EditText
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,12 +13,17 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
     App.o2mc.track("MainActivityCreated") // access o2mc by property syntax
+
+    // Click listeners
+    buttonCreateEvent.setOnClickListener { onCreateEventHandler() }
+    buttonOpenControls.setOnClickListener { onOpenControls() }
+    buttonOnSetEndpoint.setOnClickListener { onSetEndpointHandler() }
   }
 
   /**
    * Called on 'Create Track Event' button click
    */
-  fun onCreateEventHandler(v: View) {
+  private fun onCreateEventHandler() {
     val editText: EditText = findViewById(R.id.editText)
     val text: String = editText.text.toString() // access text by property syntax
 
@@ -28,7 +33,7 @@ class MainActivity : AppCompatActivity() {
   /**
    * Called on 'Set Endpoint' button click
    */
-  fun onSetEndpointHandler(v: View) {
+  private fun onSetEndpointHandler() {
     val editText: EditText = findViewById(R.id.editTextEndpointIp)
     val text: String = editText.text.toString() // access text by property syntax
 
@@ -38,7 +43,7 @@ class MainActivity : AppCompatActivity() {
   /**
    * Called on 'Open' button click
    */
-  fun onOpenControls(v: View) {
+  private fun onOpenControls() {
     startActivity(Intent(this, ControlActivity::class.java))
   }
 }

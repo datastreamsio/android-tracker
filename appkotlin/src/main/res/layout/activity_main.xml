@@ -50,11 +50,10 @@
             />
 
         <Button
-            android:id="@+id/btnConfirmUsername"
+            android:id="@+id/buttonCreateEvent"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_margin="16dp"
-            android:onClick="onCreateEventHandler"
             android:text="@string/track"
             style="@style/Widget.AppCompat.Button.Colored"
             />
@@ -90,7 +89,6 @@
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_margin="16dp"
-            android:onClick="onOpenControls"
             android:text="@string/open_controls"
             style="@style/Widget.AppCompat.Button.Colored"
             />
@@ -133,10 +131,10 @@
             />
 
         <Button
+            android:id="@+id/buttonOnSetEndpoint"
             android:layout_width="match_parent"
             android:layout_height="75dp"
             android:layout_margin="16dp"
-            android:onClick="onSetEndpointHandler"
             android:text="@string/setEndpoint"
             style="@style/Widget.AppCompat.Button.Colored"
             />
