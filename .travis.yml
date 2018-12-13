@@ -1,0 +1,9 @@
+language: android
+android:
+  components:
+    - build-tools-26.0.2
+    # SDK
+    - android-26
+script:
+  - android list target
+  - ./gradlew clean lint test
