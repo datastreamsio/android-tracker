@@ -139,7 +139,7 @@ public final class Util {
    * @return true if event name is valid
    */
   public static boolean isValidEventName(String eventName) {
-    // Must me non-empty
+    // Must be non-empty
     return eventName != null && !eventName.isEmpty();
   }
 
@@ -150,7 +150,7 @@ public final class Util {
    * @return true if event value is valid
    */
   public static boolean isValidEventValue(Object value) {
-    // Must me non-empty
+    // Must be non-empty
     return value != null;
   }
 }
