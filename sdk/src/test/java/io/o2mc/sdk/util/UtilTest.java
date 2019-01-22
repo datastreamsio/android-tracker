@@ -102,4 +102,57 @@ public class UtilTest {
       assertFalse(Util.isValidMaxRetries(i));
     }
   }
+
+  @Test
+  public void isValidEventName() {
+    List<String> validEventNames = new ArrayList<>();
+    validEventNames.add("hello");
+    validEventNames.add("hello_world");
+    validEventNames.add("helloWorld");
+    validEventNames.add("hello World");
+    validEventNames.add("1337");
+
+    for (String eventName : validEventNames) {
+      assertTrue(Util.isValidEventName(eventName));
+    }
+
+    List<String> invalidEventNames = new ArrayList<>();
+    invalidEventNames.add(null);
+
+    for (String eventName : invalidEventNames) {
+      assertFalse(Util.isValidEventName(eventName));
+    }
+  }
+
+  @Test
+  public void isValidEventValue() {
+    List<Object> validEventValues = new ArrayList<>();
+
+    int[] intArray = {9000, 1000, 1337};
+    String stringArray[] = {"Edwin", "Juan", "Nicky"};
+    class TestObj {  public String name = "Josh"; }
+
+    validEventValues.add("string"); // string
+    validEventValues.add(true); // bool
+    validEventValues.add(1.123f); // float
+    validEventValues.add(0.000002); // double
+    validEventValues.add(1337); // int
+    validEventValues.add(31337L); // long
+    validEventValues.add('c'); // char
+    validEventValues.add("bytes".getBytes()); // bytes
+    validEventValues.add(intArray); // int array
+    validEventValues.add(stringArray); // string array
+    validEventValues.add(new TestObj()); // object
+
+    for (Object eventValue : validEventValues) {
+      assertTrue(Util.isValidEventValue(eventValue));
+    }
+
+    List<String> invalidEventValues = new ArrayList<>();
+    invalidEventValues.add(null);
+
+    for (String eventValue : invalidEventValues) {
+      assertFalse(Util.isValidEventValue(eventValue));
+    }
+  }
 }
