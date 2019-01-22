@@ -109,8 +109,12 @@ public class UtilTest {
     validEventNames.add("hello");
     validEventNames.add("hello_world");
     validEventNames.add("helloWorld");
-    validEventNames.add("hello World");
     validEventNames.add("1337");
+    validEventNames.add("a/b/c");
+    validEventNames.add("aa-b-cc");
+    validEventNames.add("aa.b.cc");
+    validEventNames.add("aa:b:cc");
+    validEventNames.add("aa-/-cc.dd:ee");
 
     for (String eventName : validEventNames) {
       assertTrue(Util.isValidEventName(eventName));
@@ -118,6 +122,12 @@ public class UtilTest {
 
     List<String> invalidEventNames = new ArrayList<>();
     invalidEventNames.add(null);
+    invalidEventNames.add("hello World");
+    invalidEventNames.add(" "); // space
+    invalidEventNames.add("      "); // multiple spaces
+    invalidEventNames.add("     "); // tables
+    invalidEventNames.add("^&##s");
+
 
     for (String eventName : invalidEventNames) {
       assertFalse(Util.isValidEventName(eventName));

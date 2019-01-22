@@ -2,6 +2,7 @@ package io.o2mc.sdk.util;
 
 import android.security.NetworkSecurityPolicy;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 import static io.o2mc.sdk.util.LogUtil.LogD;
 import static io.o2mc.sdk.util.LogUtil.LogW;
@@ -139,8 +140,9 @@ public final class Util {
    * @return true if event name is valid
    */
   public static boolean isValidEventName(String eventName) {
+    Pattern namePattern = Pattern.compile("^[\\w-:_/.]+$");
     // Must me non-empty
-    if (eventName == null || eventName.isEmpty()) {
+    if (eventName == null || eventName.isEmpty() || !namePattern.matcher(eventName).matches()) {
       return false;
     }
 
