@@ -140,12 +140,7 @@ public final class Util {
    */
   public static boolean isValidEventName(String eventName) {
     // Must me non-empty
-    if (eventName == null || eventName.isEmpty()) {
-      return false;
-    }
-
-    // All conditions passed, event name is valid
-    return true;
+    return eventName != null && !eventName.isEmpty();
   }
 
   /**
@@ -156,11 +151,6 @@ public final class Util {
    */
   public static boolean isValidEventValue(Object value) {
     // Must me non-empty
-    if (value == null) {
-      return false;
-    }
-
-    // All conditions passed, event value is valid
-    return true;
+    return value != null;
   }
 }
