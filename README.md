@@ -17,7 +17,7 @@ The following tools are required.
 ### Android
 > Hello, World!
 
-For a Hello-world example, please refer to [this](docs/ANDROID.md) page.
+For a Hello-world example, please refer to [this](INSTALL.md) page.
 
 
 ## License
