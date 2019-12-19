@@ -126,6 +126,10 @@ In the `AndroidManifest.xml`, add the line `android:name=".App"` in the `Applica
 ...
 ```
 
+Keep in mind that the SDK requires internet permission in order to work correctly.
+
+*note: http requests aren't allow by default as of API version 28. See [Android's documentation](https://developer.android.com/training/articles/security-config#CleartextTrafficPermitted).*
+
 # 4. Start Tracking!
 
 From any activity/fragment, use any of the following methods to start tracking events:
