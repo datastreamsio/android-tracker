@@ -36,13 +36,13 @@ There are two versions of the SDK library aar file. The first one is the release
 Generating a debug library:
 
 ```sh
-$user@localhost> ./gradlew assembleDebug
+$ ./gradlew assembleDebug
 ```
 
 Generate a release library:
 
 ```sh
-$user@localhost> ./gradlew assembleRelease
+$ ./gradlew assembleRelease
 ```
 
 The generated files can be found in `sdk/build/outputs/aar`.
