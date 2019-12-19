@@ -84,7 +84,7 @@ dependencies {
 ```
 dependencies {
 	...
-	compile project(":sdk")
+	implementation project(":sdk")
 }
 ```
 
