@@ -29,11 +29,29 @@ Create a new project, or use an existing one. Make sure there's at least one act
 
 There are two methods to install the SDK for Android. The first one is to include the debug aar module and the second one is to compile the source code together with your app.
 
-#### Install using the aar module file
+#### Generate the aar library file
 
-*The sdk-debug.aar can be found in the app/libs directory*
+There are two versions of the SDK library aar file. The first one is the release and the second one is a debug file.
 
-* Add the `sdk-debug.aar` into your project's `libs/` directory.
+Generating a debug library:
+
+```sh
+$ ./gradlew assembleDebug
+```
+
+Generate a release library:
+
+```sh
+$ ./gradlew assembleRelease
+```
+
+The generated files can be found in `sdk/build/outputs/aar`.
+
+*A pre-generated sdk-debug.aar can be found in the app/libs directory*
+#### Install using the aar library file
+
+
+* Add the `sdk-debug.aar` or `sdk-release.aar` into your project's `libs/` directory.
 * Add to following flatDir section to your top level gradle file's repositories section:
 
 ```
@@ -54,7 +72,7 @@ dependencies {
 	implementation 'com.google.code.gson:gson:2.8.5'
 	implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 	implementation 'com.jaredrummler:android-device-names:1.1.7'
-	implementation(name: 'sdk-debug', ext: 'aar')
+	implementation(name: 'sdk-debug', ext: 'aar') // or sdk-release
 }
 ```
 
@@ -66,7 +84,7 @@ dependencies {
 ```
 dependencies {
 	...
-	compile project(":sdk")
+	implementation project(":sdk")
 }
 ```
 
@@ -107,6 +125,10 @@ In the `AndroidManifest.xml`, add the line `android:name=".App"` in the `Applica
     </application>
 ...
 ```
+
+Keep in mind that the SDK requires internet permission in order to work correctly.
+
+*note: http requests aren't allow by default as of API version 28. See [Android's documentation](https://developer.android.com/training/articles/security-config#CleartextTrafficPermitted).*
 
 # 4. Start Tracking!
 
